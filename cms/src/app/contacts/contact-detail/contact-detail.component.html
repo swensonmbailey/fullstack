@@ -1,0 +1,45 @@
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading" style="height: 150px;">
+
+            <div class="col-md-12">
+                <h3>{{contact?.name}}</h3>
+            </div>
+            
+            <div class="col-md-12">
+
+                <div class="pull-left">
+                    <img src="{{contact?.imageUrl}}" alt="{{contact?.name}}" class="img-responsive">
+                </div>
+
+                <div class="pull-right"> 
+                    <button type="submit" class="btn btn-sm btn-primary" style="margin-bottom: 10px;">Edit</button>
+                    <button type="submit" class="btn btn-sm btn-danger" style="margin-bottom: 10px;">Delete</button>
+                </div>
+            </div>
+            
+            
+
+        </div>
+        <div class="panel-body">
+
+
+
+            
+
+
+            <ul class="list-group">
+                <li class="list-group-item"><b>Email: </b> {{contact?.email}}</li>
+                <li class="list-group-item"><b>Phone: </b> {{contact?.phone}}</li>
+            </ul>
+
+
+
+
+
+
+
+            
+        </div>
+    </div>  
+</div>
