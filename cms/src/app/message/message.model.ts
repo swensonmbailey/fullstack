@@ -1,4 +1,4 @@
-export class Document{
+export class Message{
 
     constructor(public id: number, 
          public subject: string, 
