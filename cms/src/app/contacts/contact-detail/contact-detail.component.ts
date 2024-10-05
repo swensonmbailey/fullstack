@@ -11,7 +11,7 @@ export class ContactDetailComponent {
   }
 
   @Input() contact: Contact | undefined;
-  
 
-   
+
+  
 }

@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cms';
+
+  currentView = 'contacts';
+
+  switchView(selectedFeature: string){
+    this.currentView = selectedFeature;
+  }
 }
