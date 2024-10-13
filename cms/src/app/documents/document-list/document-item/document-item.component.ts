@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Document } from '../../document.model';
 
 @Component({
   selector: 'cms-document-item',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class DocumentItemComponent {
 
+  @Input() document = new Document(-1, '', '', '', null);
+  
+  
 }
+ 

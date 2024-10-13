@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class DocumentsComponent {
 
+  selectedDoc: any;
+
+  onSelected(document: Document){
+    this.selectedDoc = document;
+  }
+
 }

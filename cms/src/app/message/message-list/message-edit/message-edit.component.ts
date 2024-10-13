@@ -12,8 +12,12 @@ export class MessageEditComponent {
   @Output() sendMessageEvent = new EventEmitter<Message>;
 
   onSendMessage(){
-    let newMessage = new Message(4, this.subject.nativeElement.value, this.msgText.nativeElement.value, "Swenson")
-    this.sendMessageEvent.emit(newMessage);
+    if(!(this.subject.nativeElement.value == "" ||  this.msgText.nativeElement.value == "" )){
+      let newMessage = new Message(4, this.subject.nativeElement.value, this.msgText.nativeElement.value, "Swenson")
+      this.sendMessageEvent.emit(newMessage);
+    
+    }
+    
   }
 
   onClear(subjectRef: HTMLInputElement, messageRef: HTMLInputElement){
