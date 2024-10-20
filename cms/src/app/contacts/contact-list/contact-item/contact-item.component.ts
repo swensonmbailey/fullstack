@@ -7,7 +7,7 @@ import { Contact } from '../../contact.model';
   styleUrl: './contact-item.component.css'
 })
 export class ContactItemComponent {
-  @Input() displayedContact = new Contact(-1,  '', '', '', "", null);
+  @Input() displayedContact!: Contact;
  
 
 }

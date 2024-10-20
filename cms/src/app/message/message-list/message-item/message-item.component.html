@@ -1,12 +1,9 @@
 <a class="list-group-item clearfix">
-<div class="" *ngIf="message.id > -1">
-    <span class="{{message.sender}}">{{message.sender}}</span>
+<div class="">
+    <span class="messageHeader">{{messageSender}}</span>
     <div class="messageText">{{message.msgText}}</div>
 </div>
 
-<div class="" *ngIf="message.id === -1">
-    
-    <div class="messageText">No messages</div>
-</div>
+
 
 </a>

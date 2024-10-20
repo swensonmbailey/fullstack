@@ -8,7 +8,7 @@ import { Document } from '../../document.model';
 })
 export class DocumentItemComponent {
 
-  @Input() document = new Document(-1, '', '', '', null);
+  @Input() document!: Document;
   
   
 }
