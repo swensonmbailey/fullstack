@@ -3,7 +3,9 @@
         <div class="panel-heading">
             <span><b>Contacts</b></span> 
             <div class="pull-right"> 
-                <button type="submit" class="btn btn-sm btn-success" style="margin-bottom: 10px;">New Contact</button>
+                <button type="submit" class="btn btn-sm btn-success" style="margin-bottom: 10px;"
+                (click)="onNewContact()"
+                >New Contact</button>
             </div>
 
         </div>
@@ -22,9 +24,10 @@
                 </a> -->
 
                 <cms-contact-item 
-                *ngFor="let contact of contacts"
+                *ngFor="let contact of contacts; let i = index"
                 [displayedContact]="contact"
-                (click)="onContactClick(contact)"
+                [index]="i"
+                
                 ></cms-contact-item>
             </div> 
 

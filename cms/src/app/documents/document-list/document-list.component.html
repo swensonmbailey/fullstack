@@ -2,15 +2,15 @@
     <div class="panel-heading">
         <div class="row pad-left-right">
             <span class="pull-left title">Documents</span>
-            <a class="btn btn-success pull-right">Add Document</a>
+            <a class="btn btn-success pull-right" (click)="onNewDoc()">Add Document</a>
         </div>
     </div>
     <div class="panel-body">
         <div class="center-panel">
             <cms-document-item
-            *ngFor="let doc of documents"
+            *ngFor="let doc of documents; let i = index"
             [document]="doc"
-            (click)="onSelectedDocument(doc)"
+            [index]="i"
             ></cms-document-item>
         </div>
     </div>

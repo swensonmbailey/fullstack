@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'cms-contact-list',
@@ -12,7 +13,7 @@ export class ContactListComponent implements OnInit {
 
   
 
-  constructor(private contactService: ContactService){
+  constructor(private contactService: ContactService, private route: ActivatedRoute, private router: Router){
 
   }
 
@@ -21,8 +22,9 @@ export class ContactListComponent implements OnInit {
 
   }
 
-  onContactClick(contact: Contact){
-    this.contactService.contactSelectedEvent.emit(contact);
+
+  onNewContact(){
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 
 }

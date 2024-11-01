@@ -19,13 +19,14 @@ export class ContactService {
     return this.contacts.slice();
   }
 
-  getContact(id: string){
-    for(let x in this.contacts){
-      if(this.contacts[x].id == id){
-        return this.contacts[x];
-      }
-    }
-    return null as any;
+  getContact(id: number){
+    // for(let x in this.contacts){
+    //   if(this.contacts[x].id == id){
+    //     return this.contacts[x];
+    //   }
+    // }
+    // return null as any;
+    return this.contacts[id];
   }
 
   

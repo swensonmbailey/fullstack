@@ -19,13 +19,14 @@ export class DocumentService {
     return this.documents.slice();
   }
 
-  getDocument(id: string){
-    for(let x in this.documents){
-      if(this.documents[x].id == id){
-        return this.documents[x];
-      }
-    }
-    return null;
+  getDocument(id: number){
+    // for(let x in this.documents){
+    //   if(this.documents[x].id == id){
+    //     return this.documents[x];
+    //   }
+    // }
+    // return null;
+    return this.documents[id];
   }
 
 
