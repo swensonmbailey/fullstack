@@ -33,6 +33,30 @@ export class ContactService {
     return this.contacts[id];
   }
 
+  getIndex(id: string){
+    
+    for (let i = 0; i < this.contacts.length; i++) {
+      const contact = this.contacts[i];
+      if (contact.id == id){
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  getGroups(){
+    let groupIndexes: string [] = ['18', '14', "10", '6', '4'];
+
+    let groups: Contact [] = [];
+
+    for(let contact of this.contacts){
+      if(groupIndexes.includes(contact.id)){
+        groups.push(contact);
+      }
+    }
+    return groups;
+    
+  }
   
   getMaxId(): number {
     let maxId = 0;
@@ -80,6 +104,46 @@ export class ContactService {
   }
 
 
+  manageGroups(groupContacts:any, contact: Contact){
+    //delete the contact from all groups
+    for(let x = 0; x < this.contacts.length; x++){
+
+      if(!(!this.contacts[x].group)){
+        for(let j = 0; j < this.contacts[x].group!.length; j++){
+          if(this.contacts[x].group![j].id == contact.id){
+            this.contacts[x].group!.splice(j, 1);
+          }
+        }
+      }
+      
+    
+
+
+    }
+    //add the contact to the right groups
+    for(let i = 0; i < groupContacts.length; i++){
+      let groupContact = groupContacts[i][1];
+      for(let x = 0; x < this.contacts.length; x++){
+        let con = this.contacts[x];
+        if(con.id == groupContact.id){
+          let updated = false;
+          for(let z = 0; z < this.contacts[x].group!.length; z++){
+            if(this.contacts[x].group![z].id == contact.id){
+              this.contacts[x].group![z] = contact;
+              updated = true;
+            }
+          }
+          if(!updated){
+            this.contacts[x].group!.push(contact);
+          }
+
+          }
+      }
+
+    }
+
+  }
+
   deleteContact(contact: Contact) {
     if (!contact) {
        return;
@@ -92,7 +156,8 @@ export class ContactService {
     this.contactsChangedEvent.next(this.contacts.slice());
   }
    
- 
+  
+  
   
 
 }

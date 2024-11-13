@@ -35,13 +35,26 @@
                 <li class="list-group-item"><b>Phone: </b> {{contact.phone}}</li>
             </ul>
 
+            <div *ngIf="!(!this.contact.group)">
 
 
+                <h4>Group</h4>
+                <ul class="list-group"  ng>
+                    <cms-contact-item 
+                    *ngFor="let contact of this.contact.group; let i = index"
+                    [displayedContact]="contact"
+                    [index]="getGroupMemberIndex(contact)"
+                    [groupMemberContact]="true"
+                    
+                    ></cms-contact-item>
+                </ul>
 
+            </div>
 
 
 
             
         </div>
+
     </div>  
 </div>

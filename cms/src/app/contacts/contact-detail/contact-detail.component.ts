@@ -39,6 +39,9 @@ export class ContactDetailComponent implements OnInit {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
 
-
+  getGroupMemberIndex(contact: Contact){
+    let index = this.contactService.getIndex(contact.id);
+    return index;
+  }
   
 }

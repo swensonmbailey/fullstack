@@ -4,31 +4,37 @@ export const MOCKDOCUMENTS: any[] = [
   {
     id: '1',
     name: 'CIT 425 - Data Warehousing',
+    description: 'This is the description',
     url: 'https://rkjdatawarehousing.wordpress.com/',
     children: [
       {
         id: '2',
         name: 'Project 1 – The Kimball Method',
+        description: 'This is the description',
         url: 'https://rkjdatawarehousing.wordpress.com/projects/project-1-the-kimball-method/'
       },
       {
         id: '3',
         name: 'Project 2 – Data warehouses vs. marts',
+        description: 'This is the description',
         url: 'https://rkjdatawarehousing.wordpress.com/projects/project-2-data-warehouses-vs-marts/'
       },
       {
         id: '4',
         name: 'Project 3 – The ETL Process',
+        description: 'This is the description',
         url: 'https://rkjdatawarehousing.wordpress.com/projects/project-3-the-etl-process/'
       },
       {
         id: '5',
         name: 'Project 4 – Modify the OLTP design',
+        description: 'This is the description',
         url: 'https://rkjdatawarehousing.wordpress.com/projects/project-4-oltp-modifications-to-erp-design/'
       },
       {
         id: '6',
         name: 'Project 5 – The OLAP design',
+        description: 'This is the description',
         url: 'https://rkjdatawarehousing.wordpress.com/projects/project-4/'
       },
       {
@@ -39,11 +45,13 @@ export const MOCKDOCUMENTS: any[] = [
       {
         id: '8',
         name: 'Project 7 – MarkLogic',
+        description: 'This is the description',
         url: 'https://rkjdatawarehousing.wordpress.com/projects/project-7-marklogic/'
       },
       {
         id: '9',
         name: 'Project 8 – Build a web application',
+        description: 'This is the description',
         url: 'https://rkjdatawarehousing.wordpress.com/projects/project-8/'
       }
     ]
@@ -51,25 +59,27 @@ export const MOCKDOCUMENTS: any[] = [
   {
     id: '10',
     name: 'CIT 460 - Enterprise Development',
+    description: 'This is the description',
     url: 'https://rkjackson.wordpress.com/',
     children: [
-      {id: '12', name: 'Case 1 – Defining the requirements', url: 'https://rkjackson.wordpress.com/cases/case-1/'},
-      {id: '13', name: 'Case 2 – User Interface design', url: 'https://rkjackson.wordpress.com/cases/case-2/'},
+      {id: '12', name: 'Case 1 – Defining the requirements', description: 'This is the description', url: 'https://rkjackson.wordpress.com/cases/case-1/'},
+      {id: '13', name: 'Case 2 – User Interface design', description: 'This is the description', url: 'https://rkjackson.wordpress.com/cases/case-2/'},
       {
-        id: '14', name: 'Case 3 – Implementing Model Layer', url: 'https://rkjackson.wordpress.com/cases/case-3/',
+        id: '14', name: 'Case 3 – Implementing Model Layer', description: 'This is the description', url: 'https://rkjackson.wordpress.com/cases/case-3/',
         children: [
           {'id': '36', name: 'Team Assignment', 'description': 'Create your first JavaBean class'}
           , {'id': '37', name: 'Individual Assignment', 'description': 'Create remaining JavaBean classes'}
         ]
       },
-      {id: '15', name: 'Case 4 – Enterprise Java Session Beans', url: 'https://rkjackson.wordpress.com/cases/case-4/'},
-      {id: '16', name: 'Case 5 – Implementing the View', url: 'https://rkjackson.wordpress.com/cases/case-5/'},
-      {id: '17', name: 'Case 6 – A Framework for the View Layer', url: 'https://rkjackson.wordpress.com/cases/case-6/'}
+      {id: '15', name: 'Case 4 – Enterprise Java Session Beans', description: 'This is the description', url: 'https://rkjackson.wordpress.com/cases/case-4/'},
+      {id: '16', name: 'Case 5 – Implementing the View', description: 'This is the description', url: 'https://rkjackson.wordpress.com/cases/case-5/'},
+      {id: '17', name: 'Case 6 – A Framework for the View Layer', description: 'This is the description',  url: 'https://rkjackson.wordpress.com/cases/case-6/'}
     ]
   },
   {
     id: '20',
     name: 'CIT 366 - Full Web Stack Development',
+    description: 'This is the description',
     url: 'https://content.byui.edu/file/b7c3e5ed-6947-497f-9d32-4e5b6b397cac/1/CIT 366 course description.pdf',
     children: [
       {
