@@ -19,6 +19,7 @@ import{DropdownDirective} from './header/dropdown.directive';
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 import { FormsModule } from '@angular/forms';
+import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { FormsModule } from '@angular/forms';
     MessageEditComponent,
     DropdownDirective,
     ContactEditComponent,
-    DocumentEditComponent
+    DocumentEditComponent,
+    ContactsFilterPipe
     
   ],
   imports: [

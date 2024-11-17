@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class ContactListComponent implements OnInit, OnDestroy{ 
   contacts: Contact[] = [];
+  term: string;
 
   private subscription!: Subscription
 
@@ -39,6 +40,10 @@ export class ContactListComponent implements OnInit, OnDestroy{
 
   onNewContact(){
     this.router.navigate(['new'], {relativeTo: this.route});
+  }
+
+  search(value: string){
+    this.term = value;
   }
 
 }
