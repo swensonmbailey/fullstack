@@ -3,6 +3,7 @@ import { Document } from './document.model';
 import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
 import { Subject } from 'rxjs';
 import { machine } from 'os';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,13 +16,39 @@ export class DocumentService {
   maxDocumentId: number;
 
 
-  constructor() { 
-    this.documents = MOCKDOCUMENTS;
-    this.maxDocumentId = this.getMaxId();
+  constructor(private http: HttpClient
+  ) { 
+    // this.documents = MOCKDOCUMENTS;
+    // this.maxDocumentId = this.getMaxId();
   }
  
   getDocuments(){
-    return this.documents.slice();
+    this.http.get<Document[]>('https://contact-and-docs-default-rtdb.firebaseio.com/documents.json')
+    .subscribe(  
+      (documents: Document[]) =>{
+        this.documents = documents;
+        console.log(documents);
+        this.maxDocumentId = this.getMaxId();
+
+        this.documents.sort();
+        this.documentChangedEvent.next(this.documents.slice());
+
+      },
+      (error) =>{
+        console.log(error); 
+      }
+    )
+  }
+
+  storeDocuments(){
+    this.http.put('https://contact-and-docs-default-rtdb.firebaseio.com/documents.json', JSON.stringify(this.documents),
+      {
+        headers: new HttpHeaders({'Content-Type': 'Json'})
+      }
+    ).subscribe(response =>{
+      console.log(response);
+      this.documentChangedEvent.next(this.documents.slice());
+    })
   }
 
   getDocument(id: number){
@@ -55,9 +82,7 @@ export class DocumentService {
     doc.id = this.maxDocumentId.toString();
     this.documents.push(doc);
     
-    let docsClone = this.documents.slice();
-
-    this.documentChangedEvent.next(docsClone);
+    this.storeDocuments();
 
   }
 
@@ -74,9 +99,7 @@ export class DocumentService {
     newDoc.id = originalDoc.id;
     this.documents[index] = newDoc;
 
-    let docsClone = this.documents.slice();
-
-    this.documentChangedEvent.next(docsClone);
+    this.storeDocuments();
 
   }
 
@@ -91,7 +114,7 @@ export class DocumentService {
        return;
     }
     this.documents.splice(pos, 1);
-    this.documentChangedEvent.next(this.documents.slice());
+    this.storeDocuments();
   }
 
 

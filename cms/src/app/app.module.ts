@@ -20,6 +20,7 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 import { FormsModule } from '@angular/forms';
 import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
+import { HttpClientModule, withFetch } from '@angular/common/http';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
  
   ],
   providers: [
