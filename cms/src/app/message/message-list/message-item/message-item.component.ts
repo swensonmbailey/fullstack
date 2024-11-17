@@ -7,8 +7,7 @@ import { Contact } from '../../../contacts/contact.model';
 @Component({
   selector: 'cms-message-item',
   templateUrl: './message-item.component.html',
-  styleUrl: './message-item.component.css',
-  providers: [ContactService]
+  styleUrl: './message-item.component.css'
 })
 export class MessageItemComponent implements OnInit{
   @Input() message!: Message;
@@ -20,12 +19,12 @@ export class MessageItemComponent implements OnInit{
     
     this.contactService.getContacts();
 
-  
+    setTimeout(() => {
       
       const contact: Contact = this.contactService.getContact(+this.message.sender);
       this.messageSender = contact.name;
 
-   
+    }, );
   
   }  
 
