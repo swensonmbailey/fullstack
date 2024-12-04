@@ -36,7 +36,7 @@ app.listen(process.env.PORT || port);
 async function connectToDb() {
   
   try{
-    await mongoose.connect('mongodb+srv://swensonmbailey:masmagic06@cluster0.8gj1ju1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/CMS');
+    await mongoose.connect('');
     console.log('Connected to database!');
     console.log(sequenceGen.sequenceGenerator('messages'));
   }
