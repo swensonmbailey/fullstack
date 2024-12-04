@@ -34,7 +34,7 @@ var sequenceId = null;
 async function sequenceGenerator(collectionType) {
   let query;
   try{
-   await Contact.find().then(function(users){
+   await Sequence.find().then(function(users){
     query = users;
    });
    console.log(query);
