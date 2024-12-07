@@ -5,7 +5,7 @@ const documentSchema = mongoose.Schema({
    id: { type: String, required: true },
    name: { type: String, required: true },
    url: { type: String, required: true },
-   children: { type: mongoose.Schema.Types.Array, ref: 'Document'},
+   children: [{type: String}],
    description: {type: String}
 });
 

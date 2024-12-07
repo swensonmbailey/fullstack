@@ -1,5 +1,5 @@
 let Sequence = require('../models/sequence');
-let Contact = require('../models/contact')
+
 const mongoose = require('mongoose');
 
 var maxDocumentId;
@@ -7,50 +7,21 @@ var maxMessageId;
 var maxContactId;
 var sequenceId = null;
 
-// async function querySequence() {
-
-//     try{
-//       let query = await Sequence.find({maxDocumentId});
-
-//       // sequenceId = query._id;
-//       // maxDocumentId = query.maxDocumentId;
-//       // maxMessageId = query.maxMessageId;
-//       // maxContactId = query.maxContactId;
-
-//       return query;
-      
-//     }catch(err){
-//         console.log('in querySequnce')
-//         return res.status(500).json({
-//             title: 'An error occurred',
-//             error: err
-//           });
-//     }
-
-  
-
-// }
-
 async function sequenceGenerator(collectionType) {
   let query;
+  
   try{
-   await Sequence.find().then(function(users){
-    query = users;
-   });
-   console.log(query);
+   query = await Sequence.findOne();
+  
 
     
   }catch(err){
       console.log('in querySequnce')
-      // return res.status(500).json({
-      //     title: 'An error occurred',
-      //     error: err
-      //   });
   }
 
 
   sequenceId = query._id;
-  console.log(sequenceId);
+ 
   maxDocumentId = query.maxDocumentId;
   maxMessageId = query.maxMessageId;
   maxContactId = query.maxContactId;
@@ -78,12 +49,11 @@ async function sequenceGenerator(collectionType) {
       return -1;
   }
 
-  Sequence.findOneAndUpdate({_id: sequenceId}, { $set: updateObject}, { upsert: true, useFindAndModify: false });
-  
-  
-  // ({_id: sequenceId}, {$set: updateObject});
+  await Sequence.findOneAndUpdate({_id: sequenceId}, {$set: updateObject}, { new: true }); 
+
 
   return nextId;
 }
 
 module.exports = {sequenceGenerator};
+ 

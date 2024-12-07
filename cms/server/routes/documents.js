@@ -4,16 +4,18 @@ const router = express.Router();
 const documentsController = require('../controllers/documents');
 
 
-router.use('/', documentsController.getDocuments);
+router.get('/', documentsController.getDocuments);
 
-// //post route
+router.get('/:id', documentsController.getDocumentById);
 
-// router.post('/', documentsController.createUser);
+//post route
 
-// //put route
-// router.put('/:id', documentsController.updateUser);
+router.post('/', documentsController.postDocument);
 
-// //delete route
-// router.delete('/:id', documentsController.deleteUser);
+//put route
+router.put('/:id', documentsController.putDocument);
 
-module.exports = router;
+//delete route
+router.delete('/:id', documentsController.deleteDocument);
+
+module.exports = router; 

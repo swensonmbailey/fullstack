@@ -6,7 +6,7 @@ const contactSchema = mongoose.Schema({
    email: { type: String},
    phone: { type: String, required: true },
    imageUrl: { type: String, required: true },
-   group: { type: mongoose.Schema.Types.Array}
+   group: [{type: String}]
 });
 
 module.exports = mongoose.model('Contact', contactSchema);

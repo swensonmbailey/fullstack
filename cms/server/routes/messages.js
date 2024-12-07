@@ -5,16 +5,18 @@ const router = express.Router();
 const messagesController = require('../controllers/messages');
 
 
-router.use('/', messagesController.getMessages);
+router.get('/', messagesController.getMessages);
 
-// //post route
+router.get('/:id', messagesController.getMessageById);
 
-// router.post('/', messagesController.createUser);
+//post route
 
-// //put route
-// router.put('/:id', messagesController.updateUser);
+router.post('/', messagesController.postMessage);
 
-// //delete route
-// router.delete('/:id', messagesController.deleteUser);
+//put route
+router.put('/:id', messagesController.putMessage);
+
+//delete route
+router.delete('/:id', messagesController.deleteMessage);
 
 module.exports = router;
